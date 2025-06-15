@@ -15,3 +15,8 @@ spec:
       containers:
         - name: users
           image: keithfajardo/kubernetes-users-app:2
+          env:
+            - name: AUTH_ADDRESS
+              value: localhost
+        - name: auth
+          image: keithfajardo/kubernetes-auth-app:1
