@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
         - name: users
-          image: keithfajardo/kubernetes-users-app:1 
+          image: keithfajardo/kubernetes-users-app:2
