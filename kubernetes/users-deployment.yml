@@ -17,6 +17,6 @@ spec:
           image: keithfajardo/kubernetes-users-app:2
           env:
             - name: AUTH_ADDRESS
-              value: localhost
+              value: localhost # Since both containers are in the same node, then can communicate via localhost
         - name: auth
           image: keithfajardo/kubernetes-auth-app:1
