@@ -14,9 +14,10 @@ spec:
     spec:
       containers:
         - name: users
-          image: keithfajardo/kubernetes-users-app:2
-          env:
-            - name: AUTH_ADDRESS
-              value: localhost # Since both containers are in the same node, then can communicate via localhost
-        - name: auth
-          image: keithfajardo/kubernetes-auth-app:1
+          image: keithfajardo/kubernetes-users-app:3
+          # We don't need the env because we are using Kubernetes Environment variables
+          # since we have service named auth-service, Kubernetes will automatically create a env variable called AUTH_SERVICE
+          # then we append a suffix of SERVICE_HOST to dynamically get the IP address of the service
+          # env:
+          #   - name: AUTH_ADDRESS
+          #     value: 10.99.69.155 # We can get the IP of the auth-service by runnign kubectl get services.
