@@ -15,9 +15,9 @@ spec:
       containers:
         - name: users
           image: keithfajardo/kubernetes-users-app:3
-          # We don't need the env because we are using Kubernetes Environment variables
-          # since we have service named auth-service, Kubernetes will automatically create a env variable called AUTH_SERVICE
-          # then we append a suffix of SERVICE_HOST to dynamically get the IP address of the service
-          # env:
-          #   - name: AUTH_ADDRESS
-          #     value: 10.99.69.155 # We can get the IP of the auth-service by runnign kubectl get services.
+          env:
+            - name: AUTH_ADDRESS
+              value: "auth-service.default" # Here, we are using the service name and with ".default".
+                                            # the ".default" notation is the namespace wherein the default namespace is "default".
+                                            # This is accessible by running kubectl get namespaces
+                                            # This is very similar to docker-compose syntax wherein we use the name of the service to get the hostname of the a container.
