@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: task
-          image: keithfajardo/kubernetes-task-app:1
+          image: keithfajardo/kubernetes-task-app:3
           env:
             - name: TASKS_FOLDER
               value: tasks
